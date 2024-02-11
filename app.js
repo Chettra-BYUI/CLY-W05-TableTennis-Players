@@ -8,16 +8,16 @@ const port = process.env.PORT || 3000;
 
 //  Parsing JSON and handling CORS
 app.use(express.json());
-app.use(cors()); //  CORS handling
+// app.use(cors()); //  CORS handling
 
 // Optional 
-/*
+ 
 app.use(cors({
-  origin: '*', // Adjust according to your needs
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Z-Key']
 }));
-*/
+ 
 
 // Import routes
 const playerRoutes = require('./routes/playerRoutes');
