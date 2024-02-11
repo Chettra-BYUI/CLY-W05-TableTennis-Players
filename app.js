@@ -1,19 +1,23 @@
 const express = require('express');
 require('dotenv').config();
 require('./db/mongo'); // Connect to MongoDB
-
 const cors = require('cors'); // Import cors
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'https://cly-w05-tabletennisplayers.onrender.com', // Allow only this domain to access your API
-  methods: ['GET', 'POST'], // Allow only these methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow only these headers
-  credentials: true, // Allow cookies to be sent across domains
-}));
+//  Parsing JSON and handling CORS
 app.use(express.json());
+app.use(cors()); //  CORS handling
+
+// Optional 
+/*
+app.use(cors({
+  origin: '*', // Adjust according to your needs
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Z-Key']
+}));
+*/
 
 // Import routes
 const playerRoutes = require('./routes/playerRoutes');
