@@ -84,9 +84,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                 
-                  }
+                  "items": null
                 }
               }
             }

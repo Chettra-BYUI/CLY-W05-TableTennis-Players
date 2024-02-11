@@ -1,7 +1,7 @@
-require('dotenv').config(); // This line ensures that environment variables from the .env file are loaded
+require('dotenv').config();  
 const mongoose = require('mongoose');
 
-// Use the MONGODB_URI from the .env file
+// Use the MONGODB_URI  
 const mongoURI = process.env.MONGODB_URI 
 
 

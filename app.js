@@ -1,11 +1,11 @@
 const express = require('express');
-require('dotenv').config(); // If using dotenv for environment variables
+require('dotenv').config();  
 require('./db/mongo'); // Connect to MongoDB
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Body-parser middleware is now built into Express
+ 
 app.use(express.json());
 
 // Import routes
@@ -28,7 +28,7 @@ const swaggerOptions = {
       description: 'API for managing table tennis player profiles',
     },
   },
-  apis: ['./routes/*.js'], // Path to the API docs
+  apis: ['./routes/playerRoutes.js'],  
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);

@@ -70,6 +70,7 @@ const playerController = require('../controllers/playerController');
 // Define routes
 router.post('/', playerController.createPlayer);
 router.get('/', playerController.getAllPlayers);
-// Add more routes as needed
+// router.put('/', playerController.updatePlayer);
+// router.delete('/', playerController.deletePlayer);
 
 module.exports = router;
