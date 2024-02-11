@@ -4,7 +4,7 @@ const playerController = require('../controllers/playerController');
 
 /**
  * @swagger
- * /test/players:
+ * /api/players:
  *   post:
  *     summary: Create a new player
  *     tags: [Players]
@@ -50,7 +50,7 @@ const playerController = require('../controllers/playerController');
 
 /**
  * @swagger
- * /test/players:
+ * /api/players:
  *   get:
  *     summary: Returns a list of players
  *     tags: [Players]

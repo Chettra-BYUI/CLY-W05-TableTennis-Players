@@ -1,11 +1,13 @@
 const express = require('express');
-require('dotenv').config();  
+require('dotenv').config();
 require('./db/mongo'); // Connect to MongoDB
+
+const cors = require('cors'); // Import cors
 
 const app = express();
 const port = process.env.PORT || 3000;
 
- 
+app.use(cors()); // Use cors middleware with default options
 app.use(express.json());
 
 // Import routes
@@ -21,7 +23,7 @@ const swaggerUi = require('swagger-ui-express');
 // Swagger definition
 const swaggerOptions = {
   swaggerDefinition: {
-    openapi: '3.0.0', // Updated to use OpenAPI 3.0
+    openapi: '3.0.0',
     info: {
       title: 'Table Tennis Player API',
       version: '1.0.0',
