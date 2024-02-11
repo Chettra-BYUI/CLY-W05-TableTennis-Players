@@ -1,0 +1,50 @@
+components:
+  schemas:
+    Player:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - userName
+        - password
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the player
+        firstName:
+          type: string
+          description: The first name of the player
+        lastName:
+          type: string
+          description: The last name of the player
+        city:
+          type: string
+          description: The city where the player is located
+        state:
+          type: string
+          description: The state where the player is located
+        clubAffiliation:
+          type: string
+          description: Club affiliation of the player
+        paddleTypes:
+          type: array
+          items:
+            type: string
+          description: Types of paddles the player uses
+        daysAvailable:
+          type: array
+          items:
+            type: string
+          description: Days the player is available to play
+        preference:
+          type: string
+          description: Preference for playing in the morning or evening
+        aboutMe:
+          type: string
+          description: A brief about the player
+        userName:
+          type: string
+          description: The player's user name for login
+        password:
+          type: string
+          description: The player's password for login
