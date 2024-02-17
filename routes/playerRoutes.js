@@ -97,7 +97,7 @@ const playerController = require('../controllers/playerController');
  *           application/json:
  *             schema:
  *                
- *       404:
+ *       400:
  *         description: Player not found
  */
 
@@ -119,10 +119,39 @@ const playerController = require('../controllers/playerController');
  *       content:
  *         application/json:
  *           schema:
- *             
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               city:
+ *                 type: string
+ *               state:
+ *                 type: string
+ *               clubAffiliation:
+ *                 type: string
+ *               paddleTypes:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               daysAvailable:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               preference:
+ *                 type: string
+ *               aboutMe:
+ *                 type: string
+ *               userName:
+ *                 type: string
+ *               password:
+ *                 type: string
  *     responses:
- *       200:
+ *       204:
  *         description: Player updated successfully
+ *       400:
+ *         description: Bad request
  *       404:
  *         description: Player not found
  */
@@ -141,9 +170,9 @@ const playerController = require('../controllers/playerController');
  *           type: string
  *         description: The player ID
  *     responses:
- *       204:
+ *       200:
  *         description: Player deleted successfully
- *       404:
+ *       400:
  *         description: Player not found
  */
 

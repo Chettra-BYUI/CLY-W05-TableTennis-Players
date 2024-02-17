@@ -9,6 +9,8 @@ exports.createPlayer = async (req, res) => {
       return res.status(400).json({ message: "Username already exists" });
     }
 
+    // plan to add more rules about user names
+
     
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
 
@@ -51,7 +53,7 @@ exports.getPlayerById = async (req, res) => {
   try {
     const player = await Player.findById(req.params.id);
     if (!player) {
-      return res.status(404).json({ message: "Player not found" });
+      return res.status(400).json({ message: "Player not found" });
     }
     res.status(200).json(player);
   } catch (error) {
@@ -71,7 +73,7 @@ exports.updatePlayer = async (req, res) => {
     if (!updatedPlayer) {
       return res.status(404).json({ message: "Player not found" });
     }
-    res.status(200).json(updatedPlayer);
+    res.status(204).json(updatedPlayer);
   } catch (error) {
     res.status(500).json({ message: "Failed to update player", error: error.message });
   }
@@ -82,9 +84,9 @@ exports.deletePlayer = async (req, res) => {
   try {
     const deletedPlayer = await Player.findByIdAndDelete(req.params.id);
     if (!deletedPlayer) {
-      return res.status(404).json({ message: "Player not found" });
+      return res.status(400).json({ message: "Player not found" });
     }
-    res.status(204).send(); // No content to send back
+    res.status(200).send(); // No content to send back
   } catch (error) {
     res.status(500).json({ message: "Failed to delete player", error: error.message });
   }

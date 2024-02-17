@@ -115,4 +115,4 @@ content-type: application/json
 
 
 ### DELETE player
-DELETE http://localhost:3000/api/players/65d0f025a9e5c9aa98f5fd53 HTTP/1.1
+DELETE http://localhost:3000/api/players/65c8480a46ef949720292599 HTTP/1.1
