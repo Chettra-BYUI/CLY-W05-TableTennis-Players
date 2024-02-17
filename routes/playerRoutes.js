@@ -84,7 +84,7 @@ const playerController = require('../controllers/playerController');
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Player'
+ *                
  *       404:
  *         description: Player not found
  */
@@ -107,7 +107,7 @@ const playerController = require('../controllers/playerController');
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Player'
+ *             
  *     responses:
  *       200:
  *         description: Player updated successfully
