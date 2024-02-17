@@ -1,10 +1,15 @@
 const Player = require('../models/Player');
 const bcrypt = require('bcryptjs');
 
-// Create a new player
 exports.createPlayer = async (req, res) => {
   try {
-    // Hash password before saving
+    // Check for duplicate username
+    const existingUser = await Player.findOne({ userName: req.body.userName.toLowerCase() }); 
+    if (existingUser) {
+      return res.status(400).json({ message: "Username already exists" });
+    }
+
+    
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
 
     const newPlayer = new Player({
@@ -17,13 +22,16 @@ exports.createPlayer = async (req, res) => {
       daysAvailable: req.body.daysAvailable,
       preference: req.body.preference,
       aboutMe: req.body.aboutMe,
-      userName: req.body.userName,
+      userName: req.body.userName.toLowerCase(),  
       password: hashedPassword // Use the hashed password
     });
 
     const savedPlayer = await newPlayer.save();
     res.status(201).json(savedPlayer);
   } catch (error) {
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ message: "Validation failed", errors: error.errors });
+    }
     res.status(500).json({ message: "Failed to create player", error: error.message });
   }
 };
@@ -54,7 +62,7 @@ exports.getPlayerById = async (req, res) => {
 // Update player
 exports.updatePlayer = async (req, res) => {
   try {
-    // Optionally hash password if it's being updated
+    
     if (req.body.password) {
       req.body.password = await bcrypt.hash(req.body.password, 12);
     }
