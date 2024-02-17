@@ -49,7 +49,7 @@ const playerController = require('../controllers/playerController');
  */
 
 /**
- * @swagger
+  * @swagger
  * /api/players:
  *   get:
  *     summary: Returns a list of players
@@ -62,9 +62,21 @@ const playerController = require('../controllers/playerController');
  *             schema:
  *               type: array
  *               items:
- *                  
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   firstName:
+ *                     type: string
+ *                   lastName:
+ *                     type: string
+ *                   city:
+ *                     type: string
+ *                   state:
+ *                     type: string
  *       500:
  *         description: Server error
+ */
  /**
  * @swagger
  * /api/players/{id}:
