@@ -38,4 +38,48 @@ exports.getAllPlayers = async (req, res) => {
   }
 };
 
+// Get player by ID
+exports.getPlayerById = async (req, res) => {
+  try {
+    const player = await Player.findById(req.params.id);
+    if (!player) {
+      return res.status(404).json({ message: "Player not found" });
+    }
+    res.status(200).json(player);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to get player", error: error.message });
+  }
+};
+
+// Update player
+exports.updatePlayer = async (req, res) => {
+  try {
+    // Optionally hash password if it's being updated
+    if (req.body.password) {
+      req.body.password = await bcrypt.hash(req.body.password, 12);
+    }
+
+    const updatedPlayer = await Player.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedPlayer) {
+      return res.status(404).json({ message: "Player not found" });
+    }
+    res.status(200).json(updatedPlayer);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update player", error: error.message });
+  }
+};
+
+// Delete player
+exports.deletePlayer = async (req, res) => {
+  try {
+    const deletedPlayer = await Player.findByIdAndDelete(req.params.id);
+    if (!deletedPlayer) {
+      return res.status(404).json({ message: "Player not found" });
+    }
+    res.status(204).send(); // No content to send back
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete player", error: error.message });
+  }
+};
+
 // more CRUD to come

@@ -8,9 +8,7 @@ const port = process.env.PORT || 3000;
 
 //  Parsing JSON and handling CORS
 app.use(express.json());
-// app.use(cors()); //  CORS handling
 
-// Optional 
  
 app.use(cors({
   origin: '*', 

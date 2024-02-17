@@ -65,12 +65,91 @@ const playerController = require('../controllers/playerController');
  *                  
  *       500:
  *         description: Server error
+ /**
+ * @swagger
+ * /api/players/{id}:
+ *   get:
+ *     summary: Get a player by ID
+ *     tags: [Players]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The player ID
+ *     responses:
+ *       200:
+ *         description: A player object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Player'
+ *       404:
+ *         description: Player not found
+ */
+
+/**
+ * @swagger
+ * /api/players/{id}:
+ *   put:
+ *     summary: Update a player
+ *     tags: [Players]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The player ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Player'
+ *     responses:
+ *       200:
+ *         description: Player updated successfully
+ *       404:
+ *         description: Player not found
+ */
+
+/**
+ * @swagger
+ * /api/players/{id}:
+ *   delete:
+ *     summary: Delete a player
+ *     tags: [Players]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The player ID
+ *     responses:
+ *       204:
+ *         description: Player deleted successfully
+ *       404:
+ *         description: Player not found
  */
 
 // Define routes
+
+// Route to create a player
 router.post('/', playerController.createPlayer);
+
+// Route to get all players
 router.get('/', playerController.getAllPlayers);
-// router.put('/', playerController.updatePlayer);
-// router.delete('/', playerController.deletePlayer);
+
+// Route to get a player by ID
+router.get('/:id', playerController.getPlayerById);
+
+// Route to update a player
+router.put('/:id', playerController.updatePlayer);
+
+// Route to delete a player
+router.delete('/:id', playerController.deletePlayer);
 
 module.exports = router;
