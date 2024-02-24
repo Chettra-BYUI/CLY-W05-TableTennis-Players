@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const playerController = require('../controllers/playerController');
+const { requiresAuth } = require('express-openid-connect');
+
+router.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 /**
  * @swagger
