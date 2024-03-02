@@ -7,9 +7,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Auth0 setup
-const { auth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
 const authConfig = {
-  authRequired: false,
+  authRequired: false,   
   auth0Logout: true,
   secret: process.env.SECRET,
   baseURL: process.env.BASE_URL,
@@ -30,9 +30,13 @@ app.use(cors({
 
 // Import routes
 const playerRoutes = require('./routes/playerRoutes');
+const clubRoutes = require('./routes/clubRoutes');  
 
-// Use routes
+playerRoutes.use(requiresAuth());
+clubRoutes.use(requiresAuth());
+
 app.use('/api/players', playerRoutes);
+app.use('/api/clubs', clubRoutes);
 
 // Swagger setup
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -43,18 +47,17 @@ const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: 'Table Tennis Player API',
+      title: 'Table Tennis Community API',
       version: '1.0.0',
-      description: 'API for managing table tennis player profiles',
+      description: 'API for managing table tennis player profiles and clubs',
     },
   },
-  apis: ['./routes/playerRoutes.js'],  
+  apis: ['./routes/playerRoutes.js', './routes/clubRoutes.js'],  
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Example route to check authentication status
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });

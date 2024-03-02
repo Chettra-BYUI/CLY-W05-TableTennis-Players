@@ -51,7 +51,7 @@ const { requiresAuth } = require('express-openid-connect');
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Club'
+ *                  
  *       500:
  *         description: Server error
  */
@@ -75,7 +75,7 @@ const { requiresAuth } = require('express-openid-connect');
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Club'
+ *                
  *       400:
  *         description: Club not found
  */
@@ -98,7 +98,7 @@ const { requiresAuth } = require('express-openid-connect');
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Club'
+ *              
  *     responses:
  *       204:
  *         description: Club updated successfully
