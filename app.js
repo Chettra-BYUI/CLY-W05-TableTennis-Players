@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 // Auth0 setup
 const { auth, requiresAuth } = require('express-openid-connect');
 const authConfig = {
-  authRequired: false,   
+  authRequired: true,   
   auth0Logout: true,
   secret: process.env.SECRET,
   baseURL: process.env.BASE_URL,
@@ -61,6 +61,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
