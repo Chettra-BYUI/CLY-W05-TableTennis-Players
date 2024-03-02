@@ -58,12 +58,8 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.get('/api/players', (req, res) => {
-  res.send(req.oidc.isAuthenticated());
-});
-
-app.get('/api/players', (req, res) => {
-  res.send(req.oidc.isAuthenticated());
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
 
