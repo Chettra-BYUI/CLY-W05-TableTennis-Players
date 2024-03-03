@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const clubController = require('../controllers/clubController');  
+const clubController = require('../controllers/clubController');
 const { requiresAuth } = require('express-openid-connect');
-
- 
 
 /**
  * @swagger
@@ -51,7 +49,20 @@ const { requiresAuth } = require('express-openid-connect');
  *             schema:
  *               type: array
  *               items:
- *                  
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   city:
+ *                     type: string
+ *                   state:
+ *                     type: string
+ *                   description:
+ *                     type: string
+ *                   members:
+ *                     type: array
+ *                     items:
+ *                       type: string
  *       500:
  *         description: Server error
  */
@@ -75,7 +86,20 @@ const { requiresAuth } = require('express-openid-connect');
  *         content:
  *           application/json:
  *             schema:
- *                
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                 city:
+ *                   type: string
+ *                 state:
+ *                   type: string
+ *                 description:
+ *                   type: string
+ *                 members:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *       400:
  *         description: Club not found
  */
@@ -98,7 +122,20 @@ const { requiresAuth } = require('express-openid-connect');
  *       content:
  *         application/json:
  *           schema:
- *              
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               city:
+ *                 type: string
+ *               state:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               members:
+ *                 type: array
+ *                 items:
+ *                   type: string
  *     responses:
  *       204:
  *         description: Club updated successfully
