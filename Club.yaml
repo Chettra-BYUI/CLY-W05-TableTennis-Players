@@ -1,0 +1,17 @@
+components:
+  schemas:
+    Club:
+      type: object
+      properties:
+        name:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        description:
+          type: string
+        members:
+          type: array
+          items:
+            type: string

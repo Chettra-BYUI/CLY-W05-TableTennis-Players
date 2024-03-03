@@ -9,7 +9,7 @@ exports.createPlayer = async (req, res) => {
       return res.status(400).json({ message: "Username already exists" });
     }
 
-    // plan to add more rules about user names
+  
 
     
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
@@ -92,4 +92,4 @@ exports.deletePlayer = async (req, res) => {
   }
 };
 
-// more CRUD to come
+
