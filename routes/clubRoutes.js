@@ -15,6 +15,11 @@ const { requiresAuth } = require('express-openid-connect');
  *         application/json:
  *           schema:
  *             type: object
+ *             required:    
+ *               - name     # Make name required
+ *               - city     # Make city required
+ *               - state    # Make state required
+ *               - description # Make description required
  *             properties:
  *               name:
  *                 type: string
