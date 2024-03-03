@@ -52,7 +52,7 @@ const swaggerOptions = {
       description: 'API for managing table tennis player profiles and clubs',
     },
   },
-  apis: ['./routes/playerRoutes.js', './routes/clubRoutes.js'],  
+  apis: ['./routes/*.js'],  
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
