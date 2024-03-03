@@ -116,3 +116,193 @@ content-type: application/json
 
 ### DELETE player
 DELETE http://localhost:3000/api/players/65c8480a46ef949720292599 HTTP/1.1
+
+
+//Cubs
+
+// LOCALHOST
+### Get all clubs
+GET http://localhost:3000/api/clubs
+
+
+### Get club by id
+GET http://localhost:3000/api/clubs/id
+
+
+### Create club
+POST http://localhost:3000/api/clubs HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Bellevue Table Tennis Clubs23",
+    "city": "Bellevue",
+    "state": "WA",
+    "description": "Community Center members owned club",
+    "members": [
+      {
+        "_id": "65c832c6d82b735a16d31cfb",
+        "firstName": "Mike",
+        "lastName": "Spinnerss22"
+      },
+      {
+        "_id": "65e23f569033247c47da1a01",
+        "firstName": "Chettra",
+        "lastName": "Ly"
+      }
+    ]
+  
+  }
+
+
+### PUT club
+PUT http://localhost:3000/api/clubs/65e3cfd7f72036d0d656fcbb  HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Portland Table Tennis Club333",
+    "city": "Portland",
+    "state": "OR",
+    "description": "City Club",
+    "members": [
+      {
+        "_id": "65c832c6d82b735a16d31cfb",
+        "firstName": "Mike",
+        "lastName": "Spinnerss22"
+      },
+      {
+        "_id": "65e23f569033247c47da1a01",
+        "firstName": "Chettra",
+        "lastName": "Ly"
+      }
+    ]
+  
+  }
+
+
+### DELETE club
+DELETE http://localhost:3000/api/clubs/65e3cfd7f72036d0d656fcbb HTTP/1.1
+
+
+// PRODUCTION Deploy
+### Get all clubs
+GET https://cly-w05-tabletennisclubs.onrender.com/api/clubs
+
+
+### Get club by id
+GET https://cse341-instructor.herokuapp.com/clubs/622023 
+
+
+### Create club
+POST http://localhost:3000/api/clubs HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Chettra2dfdf33",
+    "lastName": "string",
+    "city": "string",
+    "state": "string",
+    "clubAffiliation": "string",
+    "paddleTypes": [
+      "string"
+    ],
+    "daysAvailable": [
+      "string"
+    ],
+    "preference": "evening",
+    "aboutMe": "string",
+    "userName": "strindfdfdfdfdg433",
+    "password":"testing123"
+   
+  }
+
+
+### PUT club
+PUT http://localhost:3000/api/clubs/6220bcb39cd507e920c75a0b HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Chettra2dfdf33",
+    "lastName": "string",
+    "city": "string",
+    "state": "string",
+    "clubAffiliation": "string",
+    "paddleTypes": [
+      "string"
+    ],
+    "daysAvailable": [
+      "string"
+    ],
+    "preference": "evening",
+    "aboutMe": "string",
+    "userName": "strindfdfdfdfdg433",
+    "password":"testing123"
+   
+  }
+
+
+### DELETE club
+DELETE http://localhost:3000/api/clubs/65c8480a46ef949720292599 HTTP/1.1
+
+
+
+///Deployment
+### Get all clubs
+GET https://cly-w05-tabletennisplayers.onrender.com/api/clubs
+
+
+### Get club by id
+GET https://cly-w05-tabletennisplayers.onrender.com/id
+
+
+### Create club
+POST https://cly-w05-tabletennisplayers.onrender.com/api/clubs HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Bellevue Table Tennis Clubs23",
+    "city": "Bellevue",
+    "state": "WA",
+    "description": "Community Center members owned club",
+    "members": [
+      {
+        "_id": "65c832c6d82b735a16d31cfb",
+        "firstName": "Mike",
+        "lastName": "Spinnerss22"
+      },
+      {
+        "_id": "65e23f569033247c47da1a01",
+        "firstName": "Chettra",
+        "lastName": "Ly"
+      }
+    ]
+  
+  }
+
+
+### PUT club
+PUT https://cly-w05-tabletennisplayers.onrender.com/65e3cfd7f72036d0d656fcbb  HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Portland Table Tennis Club333",
+    "city": "Portland",
+    "state": "OR",
+    "description": "City Club",
+    "members": [
+      {
+        "_id": "65c832c6d82b735a16d31cfb",
+        "firstName": "Mike",
+        "lastName": "Spinnerss22"
+      },
+      {
+        "_id": "65e23f569033247c47da1a01",
+        "firstName": "Chettra",
+        "lastName": "Ly"
+      }
+    ]
+  
+  }
+
+
+### DELETE club
+DELETE https://cly-w05-tabletennisplayers.onrender.com/65e3cfd7f72036d0d656fcbb HTTP/1.1
