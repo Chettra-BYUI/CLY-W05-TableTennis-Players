@@ -2,16 +2,29 @@ components:
   schemas:
     Club:
       type: object
+      required:
+        - name
+        - city
+        - state
+        - description
       properties:
+        id:
+          type: string
+          description: The auto-generated id of the club
         name:
           type: string
+          description: The name of the club
         city:
           type: string
+          description: The city where the club is located
         state:
           type: string
+          description: The state where the club is located
         description:
           type: string
+          description: A brief description of the club
         members:
           type: array
           items:
             type: string
+          description: List of member IDs belonging to the club
